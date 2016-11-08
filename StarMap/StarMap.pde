@@ -73,9 +73,8 @@ void drawGrid()
 void drawLine()
 {
   line(lastX, lastY,  newX, newY);
-  float distanceX = newX - lastX;
-  float distanceY = newY - lastY;
-  text("X dist:" + distanceX + "Y dist:" + distanceY, newX + 10, newY);
+  float distance =  dist(lastX, lastY, newX, newY);
+  text("Dist:" + distance, newX + 10, newY);
 }
 
 void mousePressed()
