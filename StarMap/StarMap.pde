@@ -12,9 +12,7 @@ void draw()
 {
   background(0);
   drawGrid();
-  drawStars();
- 
-  
+  drawStars(); 
 }
 
 void loadData()
