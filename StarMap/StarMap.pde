@@ -6,13 +6,26 @@ void setup()
   
 }
 ArrayList<Star>stars = new ArrayList<Star>();
+ArrayList<Line>lines = new ArrayList<Line>();
 int borderOffset = 50;
+float lastX;
+float lastY;
+float newX;
+float newY;
+Boolean drawline = false;
+boolean firstLine = false;
+boolean secondline = false;
 
 void draw()
 {
   background(0);
   drawGrid();
-  drawStars(); 
+  drawStars();
+  
+  if(drawline == true)
+  {
+    drawLine();
+  }
 }
 
 void loadData()
@@ -55,4 +68,40 @@ void drawGrid()
     text(sideNav , borderOffset - 20 , y );
     sideNav ++;
   }
+}
+
+void drawLine()
+{
+  line(lastX, lastY,  newX, newY);
+  float distanceX = newX - lastX;
+  float distanceY = newY - lastY;
+  text("X dist:" + distanceX + "Y dist:" + distanceY, newX + 10, newY);
+}
+
+void mousePressed()
+{
+  if(firstLine == false)
+  {
+    addLine();
+    firstLine = true;
+    drawline = false;
+  }
+  else
+  {
+    addSecondLine();
+    firstLine = false;
+    drawline = true;
+  }
+}
+
+void addLine()
+{
+  lastX = mouseX;
+  lastY = mouseY;
+}
+
+void addSecondLine()
+{
+  newX = mouseX;
+  newY = mouseY;
 }
