@@ -10,8 +10,10 @@ int borderOffset = 50;
 
 void draw()
 {
-  drawGrid();
   background(0);
+  drawGrid();
+  drawStars();
+ 
   
 }
 
@@ -47,8 +49,12 @@ void drawGrid()
     text(sideNav , x , borderOffset - 10 );
     sideNav ++;
   }
+  sideNav = -5;
   for(int y = borderOffset; y < height; y+=70)
   {
     line(0+borderOffset, y , width-borderOffset, y);
+    fill(#CD15E3);
+    text(sideNav , borderOffset - 20 , y );
+    sideNav ++;
   }
 }
