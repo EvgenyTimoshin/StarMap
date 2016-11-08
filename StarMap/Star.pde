@@ -15,4 +15,10 @@ class Star
     Yg = row.getFloat(15);
     Zg = row.getFloat(16);
   }
+  
+   String toString()
+  {
+    return hab + "\t" + displayName  + "\t" + distance + "\t" + Xg + "\t"
+    + Yg + "\t" + Zg + "\t" + absMag ;
+  }
 }
